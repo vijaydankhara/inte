@@ -12,7 +12,7 @@ function Layout() {
       <Routes>
         <Route path='/' element={<User/>}></Route>
         <Route path='/createuser' element={<CreateUser/>}></Route>
-        <Route path='/updateuser' element={<UpdateUser/>}></Route>
+        <Route path='/updateuser/:id' element={<UpdateUser/>}></Route>
         <Route path='/deleteuser' element={<DeleteUser/>}></Route>
       </Routes>
       </BrowserRouter>

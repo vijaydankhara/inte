@@ -53,14 +53,17 @@ export const getAll = async (req,res) =>{
 export const update = async (req,res) =>{
   try {
     const id = req.params.id;
+
     const userExit = await UserModel.findById(id);
+    console.log("user is ->>",userExit);
+    
     if(!userExit) {
       return res.status(404).json({msg: "User Not Found"});
     }
-    const updateData = await UserModel.findByIdAndUpdate(id,req.body,{
+    const updatedUser = await UserModel.findByIdAndUpdate(id,req.body,{
       new: true,
     });
-    res.status(200).json(updateData);
+    res.status(200).json(updatedUser );
   } catch (error) {
     res.status(500).json({error: error.message});
   }
